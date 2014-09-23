@@ -1,0 +1,37 @@
+---
+layout: page
+title: Phòng ảnh
+---
+<style type="text/css">
+#gallery-list {
+    text-align: center;
+    margin: 16px -10px 0px;
+    min-width: 525px;
+    color: #555;
+}
+.gallery-index {
+    display: inline-block;
+    text-align: center;
+    padding: 32px 0px 48px;
+    margin: 16px 32px;
+    min-width: 300px;
+    min-height: 300px;
+}
+.gallery-index img{
+    max-height: 400px;
+    max-width: 400px;
+    left: -64px;
+    border: 29px solid #111;
+}
+</style>
+<div id="gallery-list">
+{% for gallery in page.galleries %}
+<div class="gallery-index">
+    <a href="{{ gallery['gallery'] }}">
+        <img src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
+    </a>
+    <h3><a href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a></h3>
+    {{ gallery["images"] | size }} ảnh
+</div>
+{% endfor %}
+</div>
